@@ -109,6 +109,8 @@ Os dados devem ser obtidos da API pública:
     - Breve explicação da solução.
     - O que você melhoraria com mais tempo.
 
+---
+
 ## 📦 Requisitos de desenvolvimento
 
 - ✅ Código sem warnings ou erros
@@ -116,6 +118,8 @@ Os dados devem ser obtidos da API pública:
 - 🎨 Uso de lib front-end (opcional, se desejar)
 - 🔁 Versionamento com Git/GitHub
 - 🧾 Conventional Commits para mensagens de commit
+
+---
 
 ### ⚙️ Funcionamento da aplicação
 
@@ -127,8 +131,10 @@ O fetch principal de dados ocorre sempre no servidor para garantir SSR real.
   
 [Adicione aqui uma descrição do funcionamento da aplicação, explicando como as funcionalidades são implementadas e como o usuário pode interagir com elas.]
 
+---
+
 ## 👤 Autor
 
-Nome: [Seu nome]
-GitHub: [link do GitHub]
-LinkedIn: [link do LinkedIn]
+- Nome: [Seu nome]
+- GitHub: [link do GitHub]
+- LinkedIn: [link do LinkedIn]
