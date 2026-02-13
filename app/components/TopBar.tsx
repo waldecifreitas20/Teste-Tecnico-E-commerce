@@ -1,4 +1,3 @@
-import { Link } from "react-router";
 import { Drawer } from "./Drawer";
 
 export function TopBar() {
