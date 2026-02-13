@@ -8,7 +8,9 @@ interface DrawerProps {
 
 
 export function Drawer(props: DrawerProps) {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false
+
+  );
   const { options } = props;
 
   return (
@@ -16,7 +18,7 @@ export function Drawer(props: DrawerProps) {
       <button
         role="button"
         aria-label="menu-toggler"
-        className="order-first"
+        className="order-first block size-8"
         onClick={() => setIsOpen(true)}
       >
         <i className="fa-solid fa-bars fa-xl"></i>
