@@ -46,6 +46,7 @@ export function Drawer(props: DrawerProps) {
 
           {options.map(({ label, link, icon }) => (
             <Link
+              key={label}
               to={link}
               className="hover:text-blue-400 flex items-center gap-4"
               onClick={() => setIsOpen(false)}
