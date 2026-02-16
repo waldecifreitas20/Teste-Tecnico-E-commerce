@@ -2,12 +2,12 @@ import { useState, type ReactElement } from "react";
 import { Link } from "react-router";
 
 
-interface DrawerProps {
+interface DrawerMenuProps {
   options: { label: string, link: string, icon: ReactElement }[]
 }
 
 
-export function Drawer(props: DrawerProps) {
+export function DrawerMenu(props: DrawerMenuProps) {
   const [isOpen, setIsOpen] = useState(false
 
   );
