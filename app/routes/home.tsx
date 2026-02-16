@@ -3,6 +3,7 @@ import type { Route } from "./+types/Home";
 import type { Product } from "~/types/product";
 import { ProductCard } from "~/components/ProductCard";
 import { ProductView } from "~/components/ProductView";
+import { Box } from "~/components/Box";
 
 export async function loader({ params }: Route.LoaderArgs) {
   try {
@@ -20,15 +21,16 @@ export default function Home({
   const products = loaderData as any as Product[];
 
   return (
-    <main className="responsible">
-      <h1>Produtos</h1>
+    <main>
+      <Box>
+        <h1>Produtos</h1>
 
-      <ProductView>
-        {products.map(product => {
-          return <ProductCard product={product} />
-        })}
-      </ProductView>
-
+        <ProductView>
+          {products.map(product => {
+            return <ProductCard product={product} />
+          })}
+        </ProductView>
+      </Box>
     </main >
   );
 }
