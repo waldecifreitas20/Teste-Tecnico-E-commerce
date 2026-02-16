@@ -25,7 +25,7 @@ export default function Home({
 
         <ProductView>
           {products.map(product => {
-            return <ProductCard product={product} />
+            return <ProductCard key={product.slug} product={product} />
           })}
         </ProductView>
       </Box>
