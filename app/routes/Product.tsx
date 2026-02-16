@@ -3,6 +3,7 @@ import { productsService } from "~/services/ProductService";
 import type { Route } from "../+types/root";
 import type { Product } from "~/types/product";
 import { Link } from "react-router";
+import { QuantityInput } from "~/components/QuantityInput";
 
 
 export async function loader({ params }: { params: { slug: string } }) {
@@ -43,15 +44,7 @@ export default function Product({ loaderData }: Route.ComponentProps) {
           <p className="old-price">R$ {(product.price * 1.4).toFixed(2)}</p>
           <p className="price">R$ {product.price.toFixed(2)}</p>
 
-          <div className="flex gap-2 items-center ">
-            <label htmlFor="quantity">Quantidade:</label>
-            <input
-              type="number"
-              min={1}
-              max={100}
-              defaultValue={1}
-              className="w-16 px-4 py-2 rounded-md border border-slate-200" />
-          </div>
+          <QuantityInput initialValue={1} />
 
           <p
             className="
