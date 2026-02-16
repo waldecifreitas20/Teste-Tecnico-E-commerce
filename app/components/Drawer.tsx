@@ -14,7 +14,7 @@ export function Drawer(props: DrawerProps) {
   const { options } = props;
 
   return (
-    <>
+    <section role="dialog" aria-modal="true" className="md:hidden">
       <button
         role="button"
         aria-label="menu-toggler"
@@ -26,6 +26,7 @@ export function Drawer(props: DrawerProps) {
 
       {isOpen && (
         <div
+          aria-hidden="true"
           className="bg-black/10 fixed inset-0 z-0"
           onClick={() => setIsOpen(false)}
         >
@@ -34,6 +35,8 @@ export function Drawer(props: DrawerProps) {
 
       <nav>
         <ul
+          role="menu"
+          aria-label="menu"
           className={` 
           fixed top-0 left-0 z-100 
           bg-white text-slate-800 
@@ -55,6 +58,6 @@ export function Drawer(props: DrawerProps) {
 
         </ul>
       </nav>
-    </>
+    </section>
   );
 }
