@@ -21,7 +21,7 @@ export default function Home({
   const products = loaderData as any as Product[];
 
   return (
-    <main>
+    <>
       <Box>
         <h1>Produtos</h1>
 
@@ -31,7 +31,7 @@ export default function Home({
           })}
         </ProductView>
       </Box>
-    </main >
+    </>
   );
 }
 
