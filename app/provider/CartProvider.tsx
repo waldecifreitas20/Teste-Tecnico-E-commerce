@@ -3,6 +3,7 @@ import type { CartItem } from "~/types/cartItem";
 import type { Product } from "~/types/product";
 
 interface CartContextType {
+  removeItem: (itemId: string) => void;
   addItem: (product: Product, quantity: number) => void;
   updateQuantity: (itemId: string, quantity: number) => void;
   getItems: () => CartItem[];
@@ -65,12 +66,17 @@ export function CartProvider({ children }: PropsWithChildren) {
     );
   }
 
+
+  function removeItem(itemId: string) {
+    setCart((prevCart) => prevCart.filter((item) => item.id !== itemId));
+  }
+
   function getItems() {
     return [...cart];
   }
 
   return (
-    <CartContext.Provider value={{ addItem, updateQuantity, getItems }}>
+    <CartContext.Provider value={{ addItem, updateQuantity, getItems, removeItem }}>
       {children}
     </CartContext.Provider>
   );
