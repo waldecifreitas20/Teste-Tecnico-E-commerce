@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Link, useNavigate } from "react-router";
 import { Box } from "~/components/Box";
 import { CartItem } from "~/components/CartItem";
 import { CartContext } from "~/provider/CartProvider";
@@ -27,7 +28,16 @@ export default function Cart() {
         <Box>
           <p className="text-sm">Items: {cart.getItems().length}</p>
           <p className="font-semibold mb-4">Total: R$ {cart.getTotal().toFixed(2)}</p>
-          <button className="accent text-white px-4 py-2 rounded-md">Finalizar compra</button>
+
+          <Link to={"/"}>
+            <button
+              onClick={() => {
+                alert("Compra finalizada com sucesso!");
+                cart.clearCart();
+              }}
+              className="accent text-white px-4 py-2 rounded-md">Finalizar compra</button>
+
+          </Link>
         </Box>
       </footer>
     </>

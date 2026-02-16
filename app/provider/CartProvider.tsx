@@ -8,6 +8,7 @@ interface CartContextType {
   updateQuantity: (itemId: string, quantity: number) => void;
   getItems: () => CartItem[];
   getTotal: () => number;
+  clearCart: () => void;
 }
 
 export const CartContext = createContext<CartContextType>({} as CartContextType);
@@ -76,6 +77,10 @@ export function CartProvider({ children }: PropsWithChildren) {
     setCart((prevCart) => prevCart.filter((item) => item.id !== itemId));
   }
 
+  function clearCart() {
+    setCart([]);
+  }
+
   function getItems() {
     return [...cart];
   }
@@ -86,7 +91,8 @@ export function CartProvider({ children }: PropsWithChildren) {
       addItem,
       updateQuantity,
       getItems,
-      removeItem
+      removeItem,
+      clearCart
     }}>
       {children}
     </CartContext.Provider>
