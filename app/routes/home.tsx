@@ -4,6 +4,9 @@ import { ProductCard } from "~/components/ProductCard";
 import { ProductView } from "~/components/ProductView";
 import { Box } from "~/components/Box";
 import { productsService } from "~/services/ProductService";
+import heroMobile from "~/assets/hero-mobile.svg";
+import { Link } from "react-router";
+
 
 export async function loader() {
   try {
@@ -20,8 +23,14 @@ export default function Home({
 
   return (
     <>
+      <img
+        onClick={() => window.location.reload()}
+        className="w-full mb-4"
+        src={heroMobile}
+        alt="Hero"
+      />
+
       <Box>
-        <h1>Produtos</h1>
 
         <ProductView>
           {products.map(product => {
