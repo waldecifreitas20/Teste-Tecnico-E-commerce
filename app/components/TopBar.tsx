@@ -17,7 +17,9 @@ export function TopBar() {
         text-white py-4">
         <MobileMenu options={options} />
 
-        <h1 className="font-bold">SHOPTRIX <i className="fa-brands fa-opencart"></i></h1>
+        <Link to="/">
+          <h1 className="font-bold">SHOPTRIX <i className="fa-brands fa-opencart"></i></h1>
+        </Link>
 
         <nav className="hidden md:block">
           <Link to="/carrinho">
