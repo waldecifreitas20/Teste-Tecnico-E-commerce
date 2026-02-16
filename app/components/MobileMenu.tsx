@@ -17,10 +17,10 @@ export function MobileMenu(props: MobileMenuProps) {
       <button
         role="button"
         aria-label="menu-toggler"
-        className="order-first block size-8"
+        className="relative z-10 order-first block size-12"
         onClick={() => setIsOpen(true)}
       >
-        <i className="fa-solid fa-bars fa-xl"></i>
+        <i className="fa-solid fa-bars fa-2xl"></i>
       </button>
 
       {isOpen && (
