@@ -6,6 +6,8 @@ import {
   ScrollRestoration,
 } from "react-router";
 
+import { CartProvider } from "~/provider/CartProvider";
+
 import type { Route } from "./+types/root";
 import "./app.css";
 import { TopBar } from "./components/TopBar";
@@ -43,8 +45,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <script src="https://kit.fontawesome.com/28de0b46ad.js" crossOrigin="anonymous"></script>
       </head>
       <body>
-        <TopBar />
-        <main>{children}</main>
+        <CartProvider>
+          <TopBar />
+          <main>{children}</main>
+        </CartProvider>
         <ScrollRestoration />
         <Scripts />
       </body>
