@@ -2,12 +2,12 @@ import { useState, type ReactElement } from "react";
 import { Link } from "react-router";
 
 
-interface DrawerMenuProps {
+interface MobileMenuProps {
   options: { label: string, link: string, icon: ReactElement }[]
 }
 
 
-export function DrawerMenu(props: DrawerMenuProps) {
+export function MobileMenu(props: MobileMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
   const { options } = props;
 
