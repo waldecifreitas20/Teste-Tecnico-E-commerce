@@ -10,6 +10,17 @@ export function TopBar() {
   ];
   return (
     <header className="bg-slate-800 relative">
+      <div
+        className="
+        bg-orange-500 
+        text-white font-medium text-center 
+        py-2 text-sm
+        overflow-hidden"
+      >
+        <p className="animate-marquee w-full text-left">
+          Frete grátis para todo o Brasil acima de R$ 200,00
+        </p>
+      </div>
       <Box
         className="
         flex items-center 
