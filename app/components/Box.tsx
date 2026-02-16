@@ -4,7 +4,7 @@ export function Box({ children, className }: PropsWithChildren & { className?: s
   return (
     <section
       aria-hidden="true"
-      className={`px-4 md:w-[80%] md:max-w-[1000px] mx-auto ${className}`}>
+      className={`responsible-box ${className}`}>
       {children}
     </section>
   );

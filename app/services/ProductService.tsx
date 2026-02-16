@@ -20,7 +20,19 @@ async function getAll(params: GetAllParams = { page: 0, limit: 20 }) {
   }
 }
 
+async function getById(slug: string) {
+  try {
+    const { data } = await api.get(`/products/slug/${slug}`)
+    return data as Product;
+  } catch (error) {
+    console.log(error);
+
+    return null;
+  }
+}
+
 
 export const productsService = {
-  getAll
+  getAll,
+  getById
 }

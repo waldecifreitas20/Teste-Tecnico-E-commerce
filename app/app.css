@@ -12,10 +12,6 @@
     @apply bg-slate-50 text-slate-800;
   }
 
-  .responsible {
-    @apply px-4;
-  }
-
   button {
     @apply cursor-pointer font-medium text-sm py-2 rounded-md;
   }
@@ -39,5 +35,9 @@
 
   .old-price {
     @apply text-slate-400 line-through text-sm mt-2;
+  }
+
+  .responsible-box {
+    @apply px-4 md:w-[80%] md:max-w-[1000px] mx-auto;
   }
 }
