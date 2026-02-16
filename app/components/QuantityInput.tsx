@@ -2,10 +2,12 @@ import { useState, useEffect } from "react";
 
 interface QuantityInputProps {
   initialValue?: number;
+  onChangeValue: (qtd: number) => void;
 }
 
 export function QuantityInput({
-  initialValue = 1
+  initialValue = 1,
+  onChangeValue
 }: QuantityInputProps) {
   const [qtd, setQtd] = useState(initialValue);
   const buttonStyle = "bg-slate-800 block p-2 text-slate-100 text-2xl";
@@ -13,10 +15,12 @@ export function QuantityInput({
 
   function increment() {
     setQtd(qtd + 1);
+    onChangeValue(qtd + 1);
   }
 
   function decrement() {
     setQtd(old => --old);
+    onChangeValue(qtd - 1);
   }
 
 
@@ -35,7 +39,8 @@ export function QuantityInput({
       <input
         type="text"
         value={qtd}
-        disabled
+        onChange={() => alert("aaa")}
+        readOnly
         className="w-12 text-center border rounded-md border-slate-200"
       />
 

@@ -44,7 +44,7 @@ export default function Product({ loaderData }: Route.ComponentProps) {
           <p className="old-price">R$ {(product.price * 1.4).toFixed(2)}</p>
           <p className="price">R$ {product.price.toFixed(2)}</p>
 
-          <QuantityInput initialValue={1} />
+          <QuantityInput initialValue={1} onChangeValue={(qtd) => console.log(qtd)} />
 
           <p
             className="
