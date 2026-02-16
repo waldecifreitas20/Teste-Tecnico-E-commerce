@@ -1,8 +1,17 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-export function Image({src, alt}: {src: string, alt: string}) {
+export function Image({ src, alt }: { src: string, alt: string }) {
   const [imageLoaded, setImageLoaded] = useState(false);
-  
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    setImageLoaded(false);
+    // Check if image is already loaded from cache
+    if (imgRef.current?.complete) {
+      setImageLoaded(true);
+    }
+  }, []);
+
   return (
     <>
       {!imageLoaded && (
@@ -10,7 +19,8 @@ export function Image({src, alt}: {src: string, alt: string}) {
       )}
 
       <img
-        className={`h-42 w-full object-cover block ${!imageLoaded ? "hidden" : ""}`}
+        ref={imgRef}
+        className={`h-42 w-full object-cover  ${!imageLoaded ? "hidden" : "block"}`}
         src={src}
         alt={alt}
         onLoad={() => setImageLoaded(true)}
