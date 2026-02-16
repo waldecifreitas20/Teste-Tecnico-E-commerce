@@ -1,5 +1,6 @@
 import { useState, type ReactElement } from "react";
 import { Link } from "react-router";
+import { Logo } from "./Logo";
 
 
 interface MobileMenuProps {
@@ -25,7 +26,7 @@ export function MobileMenu(props: MobileMenuProps) {
       {isOpen && (
         <div
           aria-hidden="true"
-          className="bg-black/10 fixed inset-0 z-0"
+          className="bg-black/10 fixed inset-0 z-10"
           onClick={() => setIsOpen(false)}
         >
         </div>
@@ -36,26 +37,28 @@ export function MobileMenu(props: MobileMenuProps) {
           role="menu"
           aria-label="menu"
           className={` 
-          fixed top-0 left-0 z-100 
-          bg-white text-slate-800 
-          flex flex-col gap-6 p-4 
-          w-[80%] max-w-75
-          h-screen shadow-lg
-          transition-all duration-300
-          ${!isOpen && "-translate-x-full"}
-          `}>
+            fixed top-0 left-0 z-100 
+            bg-white text-slate-800 
+            flex flex-col gap-6 p-4
+            w-[80%] max-w-75
+            h-screen shadow-lg
+            transition-all duration-300
+            ${!isOpen && "-translate-x-full"}
+            `}>
+          <li><Logo /></li>
 
           {options.map(({ label, link, icon }) => (
-            <Link
-              key={label}
-              to={link}
-              className="hover:text-blue-400 flex items-center gap-4"
-              onClick={() => setIsOpen(false)}
-            >{icon}{label}</Link>
+            <li key={label}>
+              <Link
+                to={link}
+                className="hover:text-blue-400 leading-10 flex items-center gap-4"
+                onClick={() => setIsOpen(false)}
+              >{icon}{label}</Link>
+            </li>
           ))}
 
         </ul>
       </nav>
-    </section>
+    </section >
   );
 }
