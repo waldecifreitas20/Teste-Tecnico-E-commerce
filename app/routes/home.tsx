@@ -1,15 +1,13 @@
-import axios from "axios";
 import type { Route } from "./+types/Home";
 import type { Product } from "~/types/product";
 import { ProductCard } from "~/components/ProductCard";
 import { ProductView } from "~/components/ProductView";
 import { Box } from "~/components/Box";
+import { productsService } from "~/services/ProductService";
 
-export async function loader({ params }: Route.LoaderArgs) {
+export async function loader() {
   try {
-    const { data } = await axios.get(`https://api.escuelajs.co/api/v1/products?offset=0&limit=10`)
-    return data;
-
+    return await productsService.getAll();
   } catch (error) {
     return [];
   }
@@ -18,7 +16,7 @@ export async function loader({ params }: Route.LoaderArgs) {
 export default function Home({
   loaderData
 }: Route.ComponentProps) {
-  const products = loaderData as any as Product[];
+  const products: Product[] = loaderData;
 
   return (
     <>
