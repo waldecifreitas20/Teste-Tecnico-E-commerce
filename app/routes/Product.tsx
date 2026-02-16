@@ -5,6 +5,8 @@ import type { Product } from "~/types/product";
 import { Link } from "react-router";
 import { QuantityInput } from "~/components/QuantityInput";
 import { ProductImages } from "~/components/ProductImages";
+import { CartContext } from "~/provider/CartProvider";
+import { useContext, useRef } from "react";
 
 
 export async function loader({ params }: { params: { slug: string } }) {
@@ -13,6 +15,8 @@ export async function loader({ params }: { params: { slug: string } }) {
 
 export default function Product({ loaderData }: Route.ComponentProps) {
   const product = loaderData as any as Product;
+  const qtdRef = useRef(1);
+  const cart = useContext(CartContext);
 
   if (!product) {
     return (
@@ -46,7 +50,7 @@ export default function Product({ loaderData }: Route.ComponentProps) {
           <p className="old-price">R$ {(product.price * 1.4).toFixed(2)}</p>
           <p className="price">R$ {product.price.toFixed(2)}</p>
 
-          <QuantityInput initialValue={1} onChangeValue={(qtd) => console.log(qtd)} />
+          <QuantityInput initialValue={1} onChangeValue={(qtd) => qtdRef.current = qtd} />
 
           <p
             className="
@@ -57,6 +61,7 @@ export default function Product({ loaderData }: Route.ComponentProps) {
             {product.description}
           </p>
         </section>
+
         {/* fixed bottom on mobile */}
         <section
           className="
@@ -64,8 +69,16 @@ export default function Product({ loaderData }: Route.ComponentProps) {
           block py-4 px-4
           bg-white 
           border-t border-slate-200">
-          <button className="accent h-fit border border-green-500">Comprar $ </button>
-          <button className=" bg-slate-300 mt-2 h-fit w-full ">
+          <Link
+            to={"/carrinho"}
+            onClick={() => cart.addItem(product, qtdRef.current)}
+          ><button className="accent h-fit border border-green-500">
+              Comprar $
+            </button>
+          </Link>
+          <button
+            onClick={() => cart.addItem(product, qtdRef.current)}
+            className=" bg-slate-300 mt-2 h-fit w-full ">
             Adicionar ao carrinho
             <i className="fa-solid fa-cart-plus ml-2"></i>
           </button>

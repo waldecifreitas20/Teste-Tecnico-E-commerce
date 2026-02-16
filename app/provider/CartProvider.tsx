@@ -3,7 +3,7 @@ import type { CartItem } from "~/types/cartItem";
 import type { Product } from "~/types/product";
 
 interface CartContextType {
-  addItem: (product: Product) => void;
+  addItem: (product: Product, quantity: number) => void;
   updateQuantity: (itemId: string, quantity: number) => void;
   getItems: () => CartItem[];
 }
@@ -14,18 +14,16 @@ export const CartContext = createContext<CartContextType>({} as CartContextType)
 export function CartProvider({ children }: PropsWithChildren) {
   const [cart, setCart] = useState<CartItem[]>([]);
 
-  function addItem(product: Product) {
-    alert("aaa")
-
+  function addItem(product: Product, quantity: number = 1) {
     const item = cart.find((item) => item.product.id === product.id);
 
     if (item !== undefined) {
-      return updateQuantity(item.id, item.quantity + 1);
+      return updateQuantity(item.id, item.quantity + quantity);
     }
 
     setCart((prevCart) => [...prevCart, {
       id: product.id.toString(),
-      quantity: 1,
+      quantity,
       product,
     }]);
   }
