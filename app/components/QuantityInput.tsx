@@ -10,7 +10,7 @@ export function QuantityInput({
   onChangeValue
 }: QuantityInputProps) {
   const [qtd, setQtd] = useState(initialValue);
-  const buttonStyle = "bg-slate-800 block p-2 text-slate-100 text-2xl";
+  const buttonStyle = "bg-slate-800 block p-2 text-slate-100 text-lg";
 
 
   function increment() {
