@@ -1,10 +1,12 @@
 import type { Product } from "~/types/product";
 import { Image } from "./Image";
+import { Link } from "react-router";
 
 export function ProductCard({ product }: { product: Product }) {
 
   return (
-    <article
+    <Link
+      to={`/produto/${product.slug}`}
       className="bg-white border h-fit border-slate-200 rounded-md relative ">
       <span
         className="badge absolute top-2 right-0">Oferta!</span>
@@ -20,6 +22,6 @@ export function ProductCard({ product }: { product: Product }) {
 
         <button className="accent">Comprar</button>
       </section>
-    </article>
+    </Link>
   );
 }
