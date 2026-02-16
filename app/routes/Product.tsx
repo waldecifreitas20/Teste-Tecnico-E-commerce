@@ -4,6 +4,7 @@ import type { Route } from "../+types/root";
 import type { Product } from "~/types/product";
 import { Link } from "react-router";
 import { QuantityInput } from "~/components/QuantityInput";
+import { ProductImages } from "~/components/ProductImages";
 
 
 export async function loader({ params }: { params: { slug: string } }) {
@@ -33,8 +34,9 @@ export default function Product({ loaderData }: Route.ComponentProps) {
         <i className="fa-solid fa-arrow-left mr-1"></i>
         Página Inicial
       </Link>
+
       <section>
-        <img src={product.images[0]} alt={product.title} />
+        <ProductImages images={product.images} />
       </section>
 
       <aside className="lg:w-2/3 border border-slate-200 p-4 rounded-md bg-white">
