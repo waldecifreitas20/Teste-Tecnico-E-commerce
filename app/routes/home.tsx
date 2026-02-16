@@ -2,10 +2,10 @@ import axios from "axios";
 import type { Route } from "./+types/Home";
 import type { Product } from "~/types/product";
 import { ProductCard } from "~/components/ProductCard";
+import { ProductView } from "~/components/ProductView";
 
 export async function loader({ params }: Route.LoaderArgs) {
   try {
-
     const { data } = await axios.get(`https://api.escuelajs.co/api/v1/products?offset=0&limit=10`)
     return data;
 
@@ -23,11 +23,11 @@ export default function Home({
     <main className="responsible">
       <h1>Produtos</h1>
 
-      <section className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+      <ProductView>
         {products.map(product => {
           return <ProductCard product={product} />
         })}
-      </section>
+      </ProductView>
 
     </main >
   );
