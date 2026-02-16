@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, useNavigate } from "react-router";
 import { Box } from "~/components/Box";
 import { CartItem } from "~/components/CartItem";
+import { CartView } from "~/components/CartView";
 import { CartContext } from "~/provider/CartProvider";
 
 export default function Cart() {
@@ -9,13 +10,13 @@ export default function Cart() {
 
   return (
     <>
-      <Box>
+      <Box className="pb-[150px]">
         <h1 className="text-xl font-semibold mt-4">Seu carrinho</h1>
-        <ul className="flex flex-col gap-4">
+        <CartView>
           {cart.getItems().map((item) => (
             <CartItem key={item.id} item={item} />
           ))}
-        </ul>
+        </CartView>
       </Box>
 
       <footer
@@ -31,11 +32,16 @@ export default function Cart() {
 
           <Link to={"/"}>
             <button
+              disabled={cart.getItems().length === 0}
               onClick={() => {
                 alert("Compra finalizada com sucesso!");
                 cart.clearCart();
               }}
-              className="accent text-white px-4 py-2 rounded-md">Finalizar compra</button>
+              className="
+                accent text-white 
+                px-4 py-2 
+                rounded-md 
+                disabled:opacity-50 disabled:cursor-not-allowed">Finalizar compra</button>
 
           </Link>
         </Box>
