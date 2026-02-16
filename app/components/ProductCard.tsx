@@ -19,8 +19,6 @@ export function ProductCard({ product }: { product: Product }) {
           <p className="text-slate-400 line-through text-sm mt-2">R$ {(product.price * 1.4).toFixed(2)}</p>
           <p className="text-slate-800 font-semibold text-lg mb-4">R$ {product.price.toFixed(2)}</p>
         </div>
-
-        <button className="accent">Comprar</button>
       </section>
     </Link>
   );
