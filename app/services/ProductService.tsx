@@ -32,7 +32,19 @@ async function getById(slug: string) {
 }
 
 
+async function getRelatedProducts(slug: string) {
+  try {
+    const { data } = await api.get(`/products/slug/${slug}/related?limit=4`)
+    return data as Product[];
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+}
+
+
 export const productsService = {
   getAll,
-  getById
+  getById,
+  getRelatedProducts,
 }

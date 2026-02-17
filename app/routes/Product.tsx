@@ -7,14 +7,24 @@ import { QuantityInput } from "~/components/QuantityInput";
 import { ProductImages } from "~/components/ProductImages";
 import { CartContext } from "~/provider/CartProvider";
 import { useContext, useRef } from "react";
+import { ProductCard } from "~/components/ProductCard";
+import { ProductView } from "~/components/ProductView";
 
+
+interface ProductLoaderData {
+  product: Product;
+  relatedProducts: Product[];
+}
 
 export async function loader({ params }: { params: { slug: string } }) {
-  return await productsService.getById(params.slug);
+  const product = await productsService.getById(params.slug);
+  const relatedProducts = await productsService.getRelatedProducts(params.slug);
+
+  return { product, relatedProducts };
 }
 
 export default function Product({ loaderData }: Route.ComponentProps) {
-  const product = loaderData as any as Product;
+  const { product, relatedProducts } = loaderData as any as ProductLoaderData;
   const qtdRef = useRef(1);
   const cart = useContext(CartContext);
 
@@ -46,7 +56,7 @@ export default function Product({ loaderData }: Route.ComponentProps) {
 
         <aside className="md:w-sm border border-slate-200 p-4 rounded-md bg-white">
 
-          <section className="pb-28 md:pb-0">
+          <section>
             <p className="text-slate-400 uppercase text-sm">{product.category.name}</p>
             <h1 className="font-bold text-2xl">{product.title}</h1>
             <p className="old-price">R$ {(product.price * 1.4).toFixed(2)}</p>
@@ -67,7 +77,7 @@ export default function Product({ loaderData }: Route.ComponentProps) {
           {/* fixed bottom on mobile */}
           <section
             className="
-            fixed bottom-0 left-0 right-0 
+            sticky bottom-0 left-0 right-0 z-10 
             block py-4 px-4
             bg-white 
             border-t border-slate-200
@@ -99,6 +109,15 @@ export default function Product({ loaderData }: Route.ComponentProps) {
         </aside>
 
       </div>
+
+      <section className="px-4">
+        <h2 className="font-bold text-2xl mt-6 mb-2">Produtos Relacionados</h2>
+        <ProductView>
+          {relatedProducts.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </ProductView>
+      </section>
     </Box>
   )
 }
