@@ -1,5 +1,5 @@
 import type { Route } from "./+types/Home";
-import  type { Product } from "~/types/product";
+import type { Product } from "~/types/product";
 import { ProductCard } from "~/components/ProductCard";
 import { ProductView } from "~/components/ProductView";
 import { Box } from "~/components/Box";
@@ -15,12 +15,8 @@ export async function loader() {
   }
 }
 
-export default function Home({
-  loaderData
-}: Route.ComponentProps) {
+export default function Home({ loaderData }: Route.ComponentProps) {
   const products: Product[] = loaderData;
-
-  alert("rendered")
 
   return (
     <>
