@@ -1,13 +1,10 @@
 import type { Route } from "./+types/Home";
-import { useMediaQuery } from "~/hooks/useMediaQuery";
-import type { Product } from "~/types/product";
+import  type { Product } from "~/types/product";
 import { ProductCard } from "~/components/ProductCard";
 import { ProductView } from "~/components/ProductView";
 import { Box } from "~/components/Box";
 import { productsService } from "~/services/ProductService";
-import heroMobile from "~/assets/hero-mobile.svg";
-import heroDesktop from "~/assets/hero-desk.jpg";
-import { Link } from "react-router";
+import { Hero } from "~/components/Hero";
 
 
 export async function loader() {
@@ -22,17 +19,13 @@ export default function Home({
   loaderData
 }: Route.ComponentProps) {
   const products: Product[] = loaderData;
-  const isDesktop = useMediaQuery("(min-width: 768px)");
+
+  alert("rendered")
 
   return (
     <>
-      <img
-        onClick={() => window.location.reload()}
-        className="w-full mb-4"
-        src={isDesktop ? heroDesktop : heroMobile}
-        alt="Hero"
-      />
-    
+      <Hero />
+
       <Box>
         <ProductView>
           {products.map(product => {
