@@ -9,6 +9,7 @@ import { CartContext } from "~/provider/CartProvider";
 import { useContext, useRef } from "react";
 import { ProductCard } from "~/components/ProductCard";
 import { ProductView } from "~/components/ProductView";
+import { Breadcrumb } from "~/components/Breadcrumb";
 
 
 interface ProductLoaderData {
@@ -28,6 +29,12 @@ export default function Product({ loaderData }: Route.ComponentProps) {
   const qtdRef = useRef(1);
   const cart = useContext(CartContext);
 
+  const breadcrumb = [
+    { label: "Home", to: "/" },
+    { label: product.category.name, to: `/categoria/${product.category.slug}/produtos` },
+    { label: product.title, to: `/produto/${product.slug}` },
+  ]
+
   if (!product) {
     return (
       <Box>
@@ -38,16 +45,7 @@ export default function Product({ loaderData }: Route.ComponentProps) {
 
   return (
     <Box className="p-0 w-full md:py-4">
-      <Link
-        to="../"
-        className="
-        py-2 px-4 m-2 
-        inline-block rounded-full
-        text-xs w-fit text-slate-700 bg-white border-slate-200 border
-        ">
-        <i className="fa-solid fa-arrow-left mr-1"></i>
-        Página Inicial
-      </Link>
+      <Breadcrumb items={breadcrumb} />
 
       <div className="md:flex md:gap-10 justify-between">
         <section className="md:w-1/2">
