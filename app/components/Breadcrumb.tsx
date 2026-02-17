@@ -7,16 +7,26 @@ interface BreadcrumbProps {
 export function Breadcrumb(props: BreadcrumbProps) {
   const { items } = props;
 
+
   return (
     <ul className="flex gap-2 text-sm mb-4">
-      {items.map((item, index) => (
-        <>
-          <li key={index}>
-            <Link to={item.to} className="hover:underline hover:text-orange-500">{item.label}</Link>
-          </li>
-          {index < items.length - 1 && <span>/</span>}
-        </>
-      ))}
+      {items.map((item, index) => {
+        const isLast = index === items.length - 1;
+        return (
+          <>
+            <li key={index} className={isLast ? "text-slate-700" : "text-slate-500"}>
+              {isLast ? (
+                item.label
+              ) : (
+                <>
+                  <Link to={item.to} className="hover:underline hover:text-orange-500">{item.label}</Link>
+                </>
+              )}
+            </li>
+            {!isLast && <span>/</span>}
+          </>
+        )
+      })}
     </ul>
   )
 }
