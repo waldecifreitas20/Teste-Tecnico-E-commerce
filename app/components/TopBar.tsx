@@ -17,7 +17,7 @@ export function TopBar() {
         py-2 text-sm
         overflow-hidden"
       >
-        <p className="animate-marquee w-full text-left">
+        <p className="animate-marquee md:animate-none w-full text-center uppercase">
           Frete grátis para todo o Brasil acima de R$ 200,00
         </p>
       </div>
