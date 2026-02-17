@@ -11,6 +11,7 @@ import { CartProvider } from "~/provider/CartProvider";
 import type { Route } from "./+types/root";
 import "./app.css";
 import { TopBar } from "./components/TopBar";
+import { Footer } from "./components/Footer";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -48,6 +49,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <CartProvider>
           <TopBar />
           <main>{children}</main>
+          <Footer />
         </CartProvider>
         <ScrollRestoration />
         <Scripts />
