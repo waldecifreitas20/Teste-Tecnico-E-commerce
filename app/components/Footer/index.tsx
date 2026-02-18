@@ -35,10 +35,10 @@ export function Footer() {
         <FooterSection>
           <h3 className="text-white font-semibold text-lg border-b border-slate-700 pb-2 w-fit">Navegação</h3>
           <ul className="flex flex-col gap-2 text-sm">
-            <li><Link to="/" className="hover:text-orange-500 transition-colors">Home</Link></li>
-            <li><Link to="/carrinho" className="hover:text-orange-500 transition-colors">Meu Carrinho</Link></li>
-            <li><Link to="#" className="hover:text-orange-500 transition-colors">Produtos</Link></li>
-            <li><Link to="#" className="hover:text-orange-500 transition-colors">Ofertas</Link></li>
+            <FooterLink link="/">Home</FooterLink>
+            <FooterLink link="/carrinho">Meu Carrinho</FooterLink>
+            <FooterLink link="/">Produtos</FooterLink>
+            <FooterLink link="/">Ofertas</FooterLink>
           </ul>
         </FooterSection>
 
@@ -46,17 +46,17 @@ export function Footer() {
         <FooterSection>
           <h3 className="text-white font-semibold text-lg border-b border-slate-700 pb-2 w-fit">Categorias</h3>
           <ul className="flex flex-col gap-2 text-sm">
-            <li><Link to="#" className="hover:text-orange-500 transition-colors">Eletrônicos</Link></li>
-            <li><Link to="#" className="hover:text-orange-500 transition-colors">Moda</Link></li>
-            <li><Link to="#" className="hover:text-orange-500 transition-colors">Casa e Decoração</Link></li>
-            <li><Link to="#" className="hover:text-orange-500 transition-colors">Esportes</Link></li>
+            <FooterLink link="/">Eletrônicos</FooterLink>
+            <FooterLink link="/">Moda</FooterLink>
+            <FooterLink link="/">Casa e Decoração</FooterLink>
+            <FooterLink link="/">Esportes</FooterLink>
           </ul>
         </FooterSection>
 
         {/* Contact Column */}
         <FooterSection>
           <h3 className="text-white font-semibold text-lg border-b border-slate-700 pb-2 w-fit">Atendimento</h3>
-          <ul className="flex flex-col gap-3 text-sm">
+          <ul className="flex flex-col gap-2 text-sm">
             <li className="flex items-center gap-2"><i className="fa-solid fa-phone text-orange-500"></i> (11) 99999-9999</li>
             <li className="flex items-center gap-2"><i className="fa-solid fa-envelope text-orange-500"></i> contato@shoptrix.com</li>
             <li className="flex items-center gap-2"><i className="fa-solid fa-location-dot text-orange-500"></i> Rua Exemplo, 123 - SP</li>
