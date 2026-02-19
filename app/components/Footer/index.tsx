@@ -6,7 +6,7 @@ import { FooterLink } from "./FooterLink";
 
 export function Footer() {
   return (
-    <footer className="bg-slate-800 text-slate-300 mt-10 border-t-4 border-orange-500">
+    <footer className="bg-slate-800 text-slate-300 border-t-4 border-orange-500">
       <Box className="py-10 grid grid-cols-1 md:grid-cols-4 gap-8">
 
         {/* Brand Column */}
