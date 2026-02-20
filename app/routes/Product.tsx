@@ -56,16 +56,19 @@ export default function Product({ loaderData }: Route.ComponentProps) {
   }
 
   return (
-    <Box className="p-0 w-full md:py-4">
+    <Box className="p-0 md:py-4">
       <Breadcrumb items={breadcrumb} />
 
-      <div className="md:flex md:gap-10 justify-between">
-        <section className="md:w-1/2">
+      <section className="md:flex md:gap-10 justify-between">
+        <article aria-label="Imagem do produto" className="md:w-1/2">
           <ProductImages images={product.images} />
-        </section>
+        </article>
 
-        <aside className="md:w-sm border border-slate-200 p-4 rounded-md bg-white">
+        <aside
+          aria-label="Informações do produto"
+          className="md:w-sm border border-slate-200 p-4 rounded-md bg-white">
 
+          {/* PRODUCT INFO */}
           <section>
             <p className="text-slate-400 uppercase text-sm">{product.category.name}</p>
             <h1 className="font-bold text-2xl">{product.title}</h1>
@@ -88,8 +91,7 @@ export default function Product({ loaderData }: Route.ComponentProps) {
           <section
             className="
             sticky bottom-0 left-0 right-0 z-10 
-            block py-4 px-4
-            bg-white 
+            block py-4 
             border-t border-slate-200
 
             md:static
@@ -118,16 +120,16 @@ export default function Product({ loaderData }: Route.ComponentProps) {
 
         </aside>
 
-      </div>
+      </section>
 
-      <section className="px-4">
+      <Box className="md:w-full">
         <h2 className="font-bold text-2xl mt-6 mb-2">Produtos Relacionados</h2>
         <ProductView>
           {relatedProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </ProductView>
-      </section>
+      </Box>
     </Box>
   )
 }

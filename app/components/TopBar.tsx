@@ -31,7 +31,7 @@ export function TopBar() {
         className="
         flex items-center 
         md:justify-between 
-        w-full gap-4 
+        gap-4 
         text-white py-2 md:py-6">
         <MobileMenu options={options} />
 
