@@ -38,7 +38,7 @@ Siga as instruções abaixo para configurar o projeto em sua máquina local:
 
 1.  **Clone o repositório**:
     ```bash
-    git clone [URL_DO_REPOSITORIO]
+    git clone https://github.com/waldecifreitas20/Teste-Tecnico-E-commerce.git
     cd teste-tecnico-e-commerce
     ```
 
