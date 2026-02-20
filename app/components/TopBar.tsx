@@ -41,8 +41,8 @@ export function TopBar() {
 
         <nav className="hidden md:block">
           <Link to="/carrinho">
-            R$ {getTotal().toFixed(2).replace('.', ',')}
             <span className="relative ml-1">
+              R$ {getTotal().toFixed(2).replace('.', ',')}
               <span
                 className="
                 absolute -top-2 -right-2 
