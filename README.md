@@ -68,3 +68,10 @@ Embora nesta aplicação SSR seja o foco principal, a navegação pode ser afeta
 
 Devido a natureza do projeto, ainda há possibilidade de ampliação na quantidade de funcionalidades, como implementaãi de filtros avançados, barra de pesquisa e criação de páginas de checkout e pagamento.
 
+
+## 👤 Autor
+
+- Nome: Waldeci Freitas
+- GitHub: [https://github.com/waldecifreitas20](https://github.com/waldecifreitas20)
+- LinkedIn: [https://www.linkedin.com/in/waldeci-freitas21/](https://www.linkedin.com/in/waldeci-freitas21/)
+
