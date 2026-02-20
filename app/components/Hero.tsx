@@ -14,7 +14,7 @@ export function Hero() {
         <Image
           alt="Hero"
           src={isDesktop ? heroDesktop : heroMobile}
-          height="lg:h-[400px]"
+          height="h-[300px] lg:h-[400px]"
         />
       </Link>
     </section>
