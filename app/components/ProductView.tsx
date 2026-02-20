@@ -5,7 +5,7 @@ export function ProductView({ children }: PropsWithChildren) {
     <section
       className="
       grid grid-cols-2 
-      gap-2
+      gap-2 py-5
       
       sm:grid-cols-3 
       lg:grid-cols-4 
