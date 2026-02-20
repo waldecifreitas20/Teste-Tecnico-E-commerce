@@ -18,10 +18,22 @@ interface ProductLoaderData {
 }
 
 export async function loader({ params }: { params: { slug: string } }) {
-  const product = await productsService.getById(params.slug);
-  const relatedProducts = await productsService.getRelatedProducts(params.slug);
+  const [product, relatedProducts] = await Promise.all([
+    productsService.getById(params.slug),
+    productsService.getRelatedProducts(params.slug),
+  ]);
 
   return { product, relatedProducts };
+}
+
+
+export function meta({ data }: { data: ProductLoaderData }) {
+  return [
+    {
+      title: `${data.product.title} | Shoptrix`,
+      description: data.product.description,
+    }
+  ];
 }
 
 export default function Product({ loaderData }: Route.ComponentProps) {
