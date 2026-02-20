@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface ProductImagesProps {
   images: string[];
@@ -6,6 +6,10 @@ interface ProductImagesProps {
 
 export function ProductImages({ images }: ProductImagesProps) {
   const [currentImage, setCurrentImage] = useState(images[0]);
+
+  useEffect(() => {
+    setCurrentImage(images[0]);
+  }, [images]);
 
   function changeImage(image: string) {
     setCurrentImage(image);
