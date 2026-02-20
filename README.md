@@ -63,7 +63,6 @@ Siga as instruções abaixo para configurar o projeto em sua máquina local:
 - `npm run dev`: Inicia o projeto em modo de desenvolvimento.
 - `npm run build`: Gera a versão otimizada para produção.
 - `npm start`: Roda o servidor de produção (após o build).
-- `npm run typecheck`: Executa a verificação de tipos do TypeScript.
 
 ---
 Desenvolvido por **Waldeci Freitas** para finalidade de teste técnico.
