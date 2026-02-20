@@ -10,6 +10,7 @@ import { useContext, useRef } from "react";
 import { ProductCard } from "~/components/ProductCard";
 import { ProductView } from "~/components/ProductView";
 import { Breadcrumb } from "~/components/Breadcrumb";
+import { Toaster, toast } from 'react-hot-toast';
 
 
 interface ProductLoaderData {
@@ -55,8 +56,19 @@ export default function Product({ loaderData }: Route.ComponentProps) {
     )
   }
 
+  function handleClick(addToCart?: boolean) {
+    cart.addItem(product, qtdRef.current);
+    if (addToCart) {
+      toast("Produto adicionado ao carrinho", {
+        icon: <i className="fa-solid fa-circle-check text-green-500"></i>,
+        duration: 1000,
+      });
+    }
+  }
+
   return (
     <Box className="p-0 md:py-4">
+      <Toaster />
       <Breadcrumb items={breadcrumb} />
 
       <section className="md:flex md:gap-10 justify-between">
@@ -103,7 +115,7 @@ export default function Product({ loaderData }: Route.ComponentProps) {
             <Link
               to={"/carrinho"}
               className="block w-full"
-              onClick={() => cart.addItem(product, qtdRef.current)}
+              onClick={() => handleClick()}
             ><button
               className="accent block h-fit border border-green-500 w-full md:py-3">
                 Comprar $
@@ -111,7 +123,7 @@ export default function Product({ loaderData }: Route.ComponentProps) {
             </Link>
 
             <button
-              onClick={() => cart.addItem(product, qtdRef.current)}
+              onClick={() => handleClick(true)}
               className=" bg-slate-300 md:py-3 hover:bg-slate-400 mt-2 h-fit w-full  ">
               Adicionar ao carrinho
               <i className="fa-solid fa-cart-plus ml-2 md:m-0"></i>
