@@ -9,7 +9,7 @@ export function Breadcrumb(props: BreadcrumbProps) {
 
 
   return (
-    <ul className="flex gap-2 text-sm mb-4">
+    <ul className="flex gap-2 text-xs px-4 md:px-0 md:text-sm my-4">
       {items.map((item, index) => {
         const isLast = index === items.length - 1;
         return (
