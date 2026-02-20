@@ -1,4 +1,4 @@
-import type { Route } from "./+types/Home";
+import type { Route } from "./+types/home";
 import type { Product } from "~/types/product";
 import { ProductCard } from "~/components/ProductCard";
 import { ProductView } from "~/components/ProductView";
