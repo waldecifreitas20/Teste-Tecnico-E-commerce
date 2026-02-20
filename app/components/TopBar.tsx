@@ -40,19 +40,21 @@ export function TopBar() {
         </Link>
 
         <nav className="hidden md:block">
-          <Link to="/carrinho">
-            <span className="relative ml-1">
-              R$ {getTotal().toFixed(2).replace('.', ',')}
-              <span
-                className="
+          <Link to="/carrinho" className="relative ml-1">
+
+            R$ {getTotal().toFixed(2).replace('.', ',')}
+            {/* CART COUNT ICON */}
+            <span
+              className="
                 absolute -top-2 -right-2 
                 bg-orange-500 text-white text-xs 
                 size-4 
                 flex items-center justify-center
                 rounded-full
                 ">{getQuantityTotal()}</span>
-              <i className="fa-solid fa-cart-shopping"></i>
-            </span>
+
+            <i className="fa-solid fa-cart-shopping"></i>
+
           </Link>
         </nav>
       </Box>
