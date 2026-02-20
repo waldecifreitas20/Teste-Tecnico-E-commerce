@@ -9,8 +9,8 @@ export default function Cart() {
   const cart = useContext(CartContext);
 
   return (
-    <Box className="w-full p-0 lg:flex lg:my-10 gap-5">
-      <Box className="w-full">
+    <Box className="w-full p-0 lg:flex lg:my-10 gap-5" >
+      <Box className="min-h-[70vh] md:min-h-[50vh] lg:border-r lg:border-slate-200">
         <h1 className="text-xl font-semibold mt-4">Seu carrinho</h1>
         <CartView>
           {cart.getItems().map((item) => (
@@ -19,15 +19,15 @@ export default function Cart() {
         </CartView>
       </Box>
 
-      <footer
+      <section
         className="
         bg-slate-800 
         sticky bottom-0 left-0
         w-full block h-fit
         py-4 text-slate-200
 
-        lg:top-10  lg:bg-white lg:shadow-2xl lg:rounded-2xl lg:text-slate-800
-        lg:border-l lg:border-slate-200
+        lg:w-[40%]
+        lg:top-10 lg:bg-transparent lg:rounded-md lg:text-slate-800
         ">
         <Box>
           <p className="text-sm">Items: {cart.getItems().length}</p>
@@ -48,7 +48,7 @@ export default function Cart() {
 
           </Link>
         </Box>
-      </footer>
+      </section>
     </Box>
   );
 }
