@@ -1,87 +1,69 @@
-# Welcome to React Router!
+# Teste Técnico - E-commerce
 
-A modern, production-ready template for building full-stack React applications using React Router.
+Este projeto é uma aplicação de e-commerce moderna desenvolvida para um teste técnico, focada em performance, usabilidade e design responsivo. A aplicação consome a API pública da [Platzi Fake Store](https://fakeapi.platzi.com/) para exibir produtos e gerenciar o fluxo de compra.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+## 📝 Descrição do Projeto
 
-## Features
+O objetivo deste projeto foi criar uma interface de loja virtual funcional onde os usuários podem navegar por uma lista de produtos, visualizar detalhes específicos de cada item e gerenciar um carrinho de compras de forma dinâmica.
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+A arquitetura utiliza o framework **React Router 7**, aproveitando recursos de renderização eficiente e navegação otimizada.
 
-## Getting Started
+## ✨ Funcionalidades
 
-### Installation
+- **🏠 Home / Listagem de Produtos**: Exibição dos produtos disponíveis com imagens, títulos e preços.
+- **🔍 Detalhes do Produto**: Página dedicada com informações completas do item, galeria de imagens e produtos relacionados.
+- **🛒 Carrinho de Compras Interativo**:
+  - Adição e remoção de produtos em tempo real.
+  - Controle de quantidade (incrementar/decrementar).
+  - Persistência básica do estado do carrinho.
+- **📱 Design Responsivo**: Interface totalmente adaptável para dispositivos móveis, tablets e desktops utilizando Tailwind CSS.
+- **🧭 Navegação Fluida**: Implementação de Breadcrumbs e Menu Mobile para uma melhor experiência do usuário.
 
-Install the dependencies:
+## 🚀 Tecnologias Utilizadas
 
-```bash
-npm install
-```
+- **React 19**: Biblioteca UI de alto desempenho.
+- **React Router 7**: Framework para roteamento, data fetching e renderização.
+- **Tailwind CSS 4**: Estilização baseada em utilitários para design rápido e consistente.
+- **TypeScript**: Garantia de tipagem e maior segurança no código.
+- **Vite**: Ferramenta de build moderna e extremamente rápida.
+- **Axios**: Cliente HTTP para integração com a API externa.
 
-### Development
+## 🛠️ Como Instalar e Rodar
 
-Start the development server with HMR:
+Siga as instruções abaixo para configurar o projeto em sua máquina local:
 
-```bash
-npm run dev
-```
+### Pré-requisitos
+- Node.js (versão 18 ou superior recomendada)
+- npm (ou yarn/pnpm)
 
-Your application will be available at `http://localhost:5173`.
+### Passo a Passo
 
-## Building for Production
+1.  **Clone o repositório**:
+    ```bash
+    git clone [URL_DO_REPOSITORIO]
+    cd teste-tecnico-e-commerce
+    ```
 
-Create a production build:
+2.  **Instale as dependências**:
+    ```bash
+    npm install
+    ```
 
-```bash
-npm run build
-```
+3.  **Inicie o servidor de desenvolvimento**:
+    ```bash
+    npm run dev
+    ```
 
-## Deployment
+4.  **Acesse no navegador**:
+    A aplicação estará disponível por padrão em `http://localhost:5173`.
 
-### Docker Deployment
 
-To build and run using Docker:
+## 📦 Scripts Disponíveis
 
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+- `npm run dev`: Inicia o projeto em modo de desenvolvimento.
+- `npm run build`: Gera a versão otimizada para produção.
+- `npm start`: Roda o servidor de produção (após o build).
+- `npm run typecheck`: Executa a verificação de tipos do TypeScript.
 
 ---
-
-Built with ❤️ using React Router.
+Desenvolvido por **Waldeci Freitas** para finalidade de teste técnico.
