@@ -9,7 +9,7 @@ export default function Cart() {
   const cart = useContext(CartContext);
 
   return (
-    <Box className="w-full p-0 lg:flex lg:my-10 gap-5" >
+    <Box className="w-full lg:w-[80%] p-0 lg:flex lg:my-10 gap-5" >
       <Box className="min-h-[70vh] md:min-h-[50vh] lg:border-r lg:border-slate-200">
         <h1 className="text-xl font-semibold mt-4">Seu carrinho</h1>
         <CartView>
